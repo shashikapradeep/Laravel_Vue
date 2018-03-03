@@ -32400,8 +32400,16 @@ module.exports = __webpack_require__(50);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_graphs_onboarding_vue__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_graphs_onboarding_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_graphs_onboarding_vue__);
 
 
+
+//start importing graph components
+
+
+Vue.component('graph-onboading', __WEBPACK_IMPORTED_MODULE_2__components_graphs_onboarding_vue___default.a);
+//end of importing graph components
 
 var app = new Vue({
     el: '#appAdmin',
@@ -32620,7 +32628,7 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(44)
+var __vue_script__ = null
 /* template */
 var __vue_template__ = __webpack_require__(45)
 /* template functional */
@@ -32661,160 +32669,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 44 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var oChart = {
-    aChartSeries: [],
-
-    drawGraph: function drawGraph() {
-
-        var options = {
-            chart: {
-                type: 'spline',
-                renderTo: 'obgraphdiv'
-            },
-            title: {
-                text: 'Application Registration Performance'
-            },
-            subtitle: {
-                text: 'weekly statistics of the year'
-            },
-            xAxis: {
-                title: {
-                    text: 'Onboard steps '
-                },
-                type: 'category',
-                // max: 100,
-                labels: {
-                    overflow: 'justify'
-                }
-                // plotBands: [{
-                //     from: 0,
-                //     to: 100
-                // }]
-            },
-
-            yAxis: {
-                title: {
-                    text: 'Retention %'
-                },
-                max: 100,
-                minorGridLineWidth: 0,
-                gridLineWidth: 0,
-                alternateGridColor: null,
-                plotBands: [{
-                    from: 0,
-                    to: 20,
-                    color: 'rgba(68, 170, 213, 0.1)',
-                    label: {
-                        text: '',
-                        style: {
-                            color: '#606060'
-                        }
-                    }
-                }, {
-                    from: 20,
-                    to: 40,
-                    color: 'rgba(0, 0, 0, 0)',
-                    label: {
-                        text: '',
-                        style: {
-                            color: '#606060'
-                        }
-                    }
-                }, {
-                    from: 40,
-                    to: 60,
-                    color: 'rgba(68, 170, 213, 0.1)',
-                    label: {
-                        text: '',
-                        style: {
-                            color: '#606060'
-                        }
-                    }
-                }, {
-                    from: 60,
-                    to: 80,
-                    color: 'rgba(0, 0, 0, 0)',
-                    label: {
-                        text: '',
-                        style: {
-                            color: '#606060'
-                        }
-                    }
-                }, {
-                    from: 80,
-                    to: 100,
-                    color: 'rgba(68, 170, 213, 0.1)',
-                    label: {
-                        text: '',
-                        style: {
-                            color: '#606060'
-                        }
-                    }
-                }]
-            },
-            tooltip: {
-                valueSuffix: ' %'
-            },
-            plotOptions: {
-                spline: {
-                    lineWidth: 4,
-                    states: {
-                        hover: {
-                            lineWidth: 5
-                        }
-                    },
-                    marker: {
-                        enabled: false
-                    }
-                }
-            },
-            series: this.aChartSeries,
-            navigation: {
-                menuItemStyle: {
-                    fontSize: '10px'
-                }
-            }
-        };
-
-        new Highcharts.Chart(options);
-    }
-
-};
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        axios.get("/admin/graph/onboarding").then(function (response) {
-            oChart.aChartSeries = response.data;
-            oChart.drawGraph();
-        }).catch(function (error) {
-            console.log(error);
-        });
-    }
-});
-
-/***/ }),
+/* 44 */,
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32822,37 +32677,21 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Onboarding Graph")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("div", {
-                staticStyle: {
-                  "min-width": "310px",
-                  height: "600px",
-                  margin: "0 auto"
-                },
-                attrs: { id: "obgraphdiv" }
-              })
-            ])
-          ])
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "card card-default" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("Onboarding Graph")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [_c("graph-onboading")], 1)
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -32992,6 +32831,228 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(67)
+/* template */
+var __vue_template__ = __webpack_require__(68)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\Admin\\components\\graphs\\onboarding.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3ae78010", Component.options)
+  } else {
+    hotAPI.reload("data-v-3ae78010", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 67 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+
+var oChart = {
+    aChartSeries: [],
+
+    drawGraph: function drawGraph() {
+
+        var options = {
+            chart: {
+                type: 'spline',
+                renderTo: 'div-graph-onboarding'
+            },
+            title: {
+                text: 'Application Registration Performance'
+            },
+            subtitle: {
+                text: 'weekly statistics of the year'
+            },
+            xAxis: {
+                title: {
+                    text: 'Onboard steps '
+                },
+                type: 'category',
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+
+            yAxis: {
+                title: {
+                    text: 'Retention %'
+                },
+                max: 100,
+                minorGridLineWidth: 0,
+                gridLineWidth: 0,
+                alternateGridColor: null,
+                plotBands: [{
+                    from: 0,
+                    to: 20,
+                    color: 'rgba(68, 170, 213, 0.1)',
+                    label: {
+                        text: '',
+                        style: {
+                            color: '#606060'
+                        }
+                    }
+                }, {
+                    from: 20,
+                    to: 40,
+                    color: 'rgba(0, 0, 0, 0)',
+                    label: {
+                        text: '',
+                        style: {
+                            color: '#606060'
+                        }
+                    }
+                }, {
+                    from: 40,
+                    to: 60,
+                    color: 'rgba(68, 170, 213, 0.1)',
+                    label: {
+                        text: '',
+                        style: {
+                            color: '#606060'
+                        }
+                    }
+                }, {
+                    from: 60,
+                    to: 80,
+                    color: 'rgba(0, 0, 0, 0)',
+                    label: {
+                        text: '',
+                        style: {
+                            color: '#606060'
+                        }
+                    }
+                }, {
+                    from: 80,
+                    to: 100,
+                    color: 'rgba(68, 170, 213, 0.1)',
+                    label: {
+                        text: '',
+                        style: {
+                            color: '#606060'
+                        }
+                    }
+                }]
+            },
+            tooltip: {
+                valueSuffix: ' %'
+            },
+            plotOptions: {
+                spline: {
+                    lineWidth: 4,
+                    states: {
+                        hover: {
+                            lineWidth: 5
+                        }
+                    },
+                    marker: {
+                        enabled: false
+                    }
+                }
+            },
+            series: this.aChartSeries,
+            navigation: {
+                menuItemStyle: {
+                    fontSize: '10px'
+                }
+            }
+        };
+
+        new Highcharts.Chart(options);
+    }
+
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        axios.get("/admin/graph/onboarding").then(function (response) {
+            oChart.aChartSeries = response.data;
+            oChart.drawGraph();
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+});
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", {
+    staticStyle: { "min-width": "310px", height: "600px", margin: "0 auto" },
+    attrs: { id: "div-graph-onboarding" }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3ae78010", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
