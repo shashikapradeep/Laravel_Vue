@@ -3,10 +3,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card card-default">
-                    <div class="card-header">User Home Page</div>
+                    <div class="card-header">Home Page</div>
 
                     <div class="card-body">
-                        User home page content
+                        Site home page content
                     </div>
                 </div>
             </div>

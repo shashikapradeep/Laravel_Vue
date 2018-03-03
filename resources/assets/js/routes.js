@@ -5,10 +5,6 @@ let routes = [
     {
         path: '/',
         component: require('./pages/home')
-    },
-    {
-        path: '/about',
-        component: require('./pages/about')
     }
 ]
 
