@@ -32701,17 +32701,17 @@ var oChart = {
             },
             xAxis: {
                 title: {
-                    text: 'Onboard Process % '
+                    text: 'Onboard steps '
                 },
                 type: 'category',
-                max: 100,
+                // max: 100,
                 labels: {
                     overflow: 'justify'
-                },
-                plotBands: [{
-                    from: 0,
-                    to: 100
-                }]
+                }
+                // plotBands: [{
+                //     from: 0,
+                //     to: 100
+                // }]
             },
 
             yAxis: {

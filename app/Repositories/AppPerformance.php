@@ -18,14 +18,15 @@ class AppPerformance
      */
     public function getOnboardData()
     {
-        //if new milestone is introduced it should come here. best practice is to put this in config file.
-        $aMilestones = [100, 99, 95, 92, 90, 85, 80, 75, 70, 60, 55, 50, 45, 40, 35, 30, 20, 0];
+        //if new step is introduced it should come here. best practice is to put this in config file.
+        $aMilestoneSteps = [100 => 'Approval', 99 => 'Waiting for approval', 90 => 'Are you freelancer', 70 => 'Relevant experience', 50 => 'Interested jobs', 40 => 'Profile information', 20 => 'Activate account', 0 => 'Create account'];
 
         // this time takes on-board data from csv file instead of DB table
         $sFilePath = base_path('storage/Admin/onboarding/onboarding_data_2018_02_25.csv');
         $aFileData = FileReader::simpleCsv($sFilePath);
 
         $aWeeksCount = [];
+        $aMilestones = array_keys($aMilestoneSteps);
         foreach ($aFileData as $iIndex => $aRow) {
             $oDate = new \DateTime($aRow['created_at']);
             $iWeek = $oDate->format("W");
@@ -49,7 +50,7 @@ class AppPerformance
 
             $aSeriesData = [];
             foreach ($aStages as $iPercentage => $iCount) {
-                $aSeriesData[] = [$iPercentage, intval(($iCount / $iTotalUsers) * 100)];
+                $aSeriesData[] = [$aMilestoneSteps[$iPercentage], intval(($iCount / $iTotalUsers) * 100)];
             }
 
             $aSeries['name'] = $iWeekNumber.' week';
