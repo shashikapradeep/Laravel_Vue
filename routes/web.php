@@ -15,12 +15,16 @@ Route::get('/about', function () {
 /**
  * Admin Routes
  */
-Route::get('/Admin', function () {
-    return view('Admin/home');
+Route::get('/admin', function () {
+    return view('admin/home');
 });
 
-Route::get('/Admin/about', function () {
-    return view('Admin/home');
+Route::get('/admin/about', function () {
+    return view('admin/home');
+});
+
+Route::get('/admin/graph', function () {
+    return view('admin/home');
 });
 
 
