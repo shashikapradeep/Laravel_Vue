@@ -21,11 +21,11 @@ class AppPerformance
     {
         //if new step is introduced it should come here. best practice is to put this in config file.
         $aMilestoneSteps = [100 => 'Approval', 99 => 'Waiting for approval', 90 => 'Are you freelancer', 70 => 'Relevant experience', 50 => 'Interested jobs', 40 => 'Profile information', 20 => 'Activate account', 0 => 'Create account'];
+        $aMilestones = array_keys($aMilestoneSteps);
 
-        $aOnboardingData = UserModel::all();
+        $aOnboardingData = UserModel::whereIn('onboarding_percentage', $aMilestones)->get();
 
         $aWeeksCount = [];
-        $aMilestones = array_keys($aMilestoneSteps);
         foreach ($aOnboardingData as $iIndex => $aRow) {
             $oDate = new \DateTime($aRow['created_at']);
             $iWeek = $oDate->format("W");
