@@ -15,10 +15,10 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('user_id');
-            $table->integer('onboarding_percentage');
-            $table->integer('count_applications');
-            $table->integer('accepted_applications');
-            $table->date('created_at');
+            $table->integer('onboarding_percentage')->default(0);
+            $table->integer('count_applications')->default(0);
+            $table->integer('accepted_applications')->default(0);
+            $table->date('created_at')->current();
         });
     }
 
